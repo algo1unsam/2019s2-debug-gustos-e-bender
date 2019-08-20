@@ -5,7 +5,7 @@ object rosa {
 }
 
 object estefania {
-	method leGusta() { return false }
+	method leGusta(objeto) { return objeto.color().esFuerte() }
 }
 
 object luisa {
