@@ -1,0 +1,88 @@
+import bolichito.*
+import objetos.*
+import personas.*
+
+test "El bolichito es brillante si tiene un muñeco y una placa" {
+	bolichito.ponerEnMostrador(munieco)
+	bolichito.ponerEnVidriera(placa)
+	
+	assert.that(bolichito.esBrillante())
+}
+
+test "El bolichito no es brillante si tiene una pelota y una placa" {
+	bolichito.ponerEnMostrador(pelota)
+	bolichito.ponerEnVidriera(placa)
+	
+	assert.notThat(bolichito.esBrillante())
+}
+
+test "El bolichito es monocromático si tiene una remera y una placa roja" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(placa)
+	
+	assert.that(bolichito.esMonocromatico())
+}
+
+test "El bolichito no es monocromático si tiene una remera y una pelota" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.notThat(bolichito.esMonocromatico())
+}
+
+test "El bolichito esta desequilibrado si tiene una pelota en el mostrador y una remera en la vidriera" {
+	bolichito.ponerEnMostrador(pelota)
+	bolichito.ponerEnVidriera(remera)
+	
+	assert.that(bolichito.estaDesequilibrado())
+}
+
+test "El bolichito no esta desequilibrado si tiene una remera en el mostrador y una pelota en la vidriera" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.notThat(bolichito.estaDesequilibrado())
+}
+
+test "El bolichito puede mejorar si tiene una pelota en el mostrador y una remera en la vidriera" {
+	bolichito.ponerEnMostrador(pelota)
+	bolichito.ponerEnVidriera(remera)
+	
+	assert.that(bolichito.puedeMejorar())
+}
+
+test "El bolichito puede mejorar si tiene una remera y una placa roja" {
+	placa.setColor(rojo)
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(placa)
+	
+	bolichito.puedeMejorar()
+}
+
+test "El bolichito no puede mejorar si tiene una remera en el mostrador y una pelota en la vidriera" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.notThat(bolichito.puedeMejorar())
+}
+
+test "El bolichito con una remera y una pelota puede ofrecerle algo a Estefanía" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.that(bolichito.puedeOfrecerleAlgoA(estefania))
+}
+
+test "El bolichito con una remera y una pelota puede ofrecerle algo a Juan" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.that(bolichito.puedeOfrecerleAlgoA(juan))
+}
+
+test "El bolichito con una remera y una pelota puede ofrecerle algo a Luisa" {
+	bolichito.ponerEnMostrador(remera)
+	bolichito.ponerEnVidriera(pelota)
+	
+	assert.notThat(bolichito.puedeOfrecerleAlgoA(luisa))
+}
