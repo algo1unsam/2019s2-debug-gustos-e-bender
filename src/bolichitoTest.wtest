@@ -1,21 +1,21 @@
 import bolichito.*
 import objetos.*
 import personas.*
-
+//1
 test "El bolichito es brillante si tiene un muñeco y una placa" {
 	bolichito.ponerEnMostrador(munieco)
 	bolichito.ponerEnVidriera(placa)
 	
 	assert.that(bolichito.esBrillante())
 }
-
+//2
 test "El bolichito no es brillante si tiene una pelota y una placa" {
 	bolichito.ponerEnMostrador(pelota)
 	bolichito.ponerEnVidriera(placa)
 	
 	assert.notThat(bolichito.esBrillante())
 }
-
+//3
 test "El bolichito es monocromático si tiene una remera y una placa roja" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(placa)//no tiene asignado color
@@ -23,67 +23,113 @@ test "El bolichito es monocromático si tiene una remera y una placa roja" {
 	
 	assert.that(bolichito.esMonocromatico())
 }
-
+//4
 test "El bolichito no es monocromático si tiene una remera y una pelota" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.notThat(bolichito.esMonocromatico())
 }
-
+//5
 test "El bolichito esta desequilibrado si tiene una pelota en el mostrador y una remera en la vidriera" {
 	bolichito.ponerEnMostrador(pelota)
 	bolichito.ponerEnVidriera(remera)
 	
 	assert.that(bolichito.estaDesequilibrado())
 }
-
+//6
 test "El bolichito no esta desequilibrado si tiene una remera en el mostrador y una pelota en la vidriera" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.notThat(bolichito.estaDesequilibrado())
 }
-
+//7
 test "El bolichito puede mejorar si tiene una pelota en el mostrador y una remera en la vidriera" {
 	bolichito.ponerEnMostrador(pelota)
 	bolichito.ponerEnVidriera(remera)
 	
 	assert.that(bolichito.puedeMejorar())
 }
-
+//8
 test "El bolichito puede mejorar si tiene una remera y una placa roja" {
 	placa.setColor(rojo)
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(placa)
 	
-	bolichito.puedeMejorar()
+	assert.that(bolichito.puedeMejorar())
 }
-
+//9
 test "El bolichito no puede mejorar si tiene una remera en el mostrador y una pelota en la vidriera" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.notThat(bolichito.puedeMejorar())
 }
-
+//10
 test "El bolichito con una remera y una pelota puede ofrecerle algo a Estefanía" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.that(bolichito.puedeOfrecerleAlgoA(estefania))
 }
-
+//11
 test "El bolichito con una remera y una pelota puede ofrecerle algo a Juan" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.that(bolichito.puedeOfrecerleAlgoA(juan))
 }
-
+//12
 test "El bolichito con una remera y una pelota puede ofrecerle algo a Luisa" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(pelota)
 	
 	assert.notThat(bolichito.puedeOfrecerleAlgoA(luisa))
 }
+
+/* EJERCICIOS REALIZADOS*/
+//13
+test "1) Mostrador: banquito 2) Vidriera: Cajita de cobre con pelota => Bolichito desequilibrado y tiene algo naranja"{
+	bolichito.ponerEnMostrador(banquito)
+	bolichito.ponerEnVidriera(cajita)
+	cajita.setObjetoInterno(pelota)
+	
+	assert.notThat(bolichito.estaDesequilibrado())
+	assert.that(bolichito.tieneAlgoDeColor(naranja))
+	
+}
+
+//14
+test "1) Mostrador: banquito 2) Vidriera: Cajita de cobre con arito => Bolichito desequilibrado"{
+	bolichito.ponerEnMostrador(banquito)
+	bolichito.ponerEnVidriera(cajita)
+	cajita.setObjetoInterno(arito)
+	
+	assert.that(bolichito.estaDesequilibrado())
+		
+}
+
+//15
+test "1) Mostrador: banquito verde 2) Vidriera: Cajita de cobre con arito => Bolichito desequilibrado"{
+	bolichito.ponerEnMostrador(banquito)
+	bolichito.ponerEnVidriera(cajita)
+	banquito.setColor(verde)
+	
+	assert.that(bolichito.estaDesequilibrado())
+	assert.notThat(bolichito.tieneAlgoDeColor(naranja))		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
