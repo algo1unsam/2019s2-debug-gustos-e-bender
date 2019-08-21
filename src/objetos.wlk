@@ -7,11 +7,52 @@ object naranja {method esFuerte(){return true} }
 
 
 /* materiales */
-object cobre { method brilla() { return true } }
-object vidrio { method brilla() { return true } }
-object lino { method brilla() { return false } }
-object madera { method brilla() { return false } }
-object cuero { method brilla() { return false } }
+object cobre { 
+	method brilla() { return true } 
+	method conduce() { return true }	
+}
+object vidrio { 
+	method brilla() { return true }
+	method conduce() { return false }
+}
+object lino { 
+	method brilla() { return false }
+	method conduce() { return false }
+}
+object madera { 
+	method brilla() { return false }
+	method conduce() { return false }
+}
+object cuero { 
+	method brilla() { return false }
+	method conduce() { return false }
+}
+
+object plomo {
+	
+	var _estado = natural
+	
+	method setEstado(estado){
+		_estado = estado
+	}
+	
+	method brilla() { 
+		return (_estado == oxidado) or (_estado == cromado)
+	}
+	
+	method conduce() { 
+		return (_estado == cromado)
+	}
+	
+
+}
+
+/*ESTADOS */
+
+object oxidado{}
+object natural{}
+object cromado{}
+
 
 /* objetos */
 object remera {
