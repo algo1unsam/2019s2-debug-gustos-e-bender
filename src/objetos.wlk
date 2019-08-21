@@ -71,6 +71,7 @@ object banquito{
 object cajita{
 	
 	var _objetoInterno = arito //seteo por defecto arito como objeto interno
+	var _material
 	
 	method setObjetoInterno(objeto){
 		_objetoInterno = objeto
@@ -79,7 +80,8 @@ object cajita{
 		return _objetoInterno
 	}
 	method color() { return rojo }
-	method material() { return madera }
+	method setMaterial(material) { _material = material }
+	method material() { return _material }
 	method peso() { return 400 + _objetoInterno.peso() }
 }
 
