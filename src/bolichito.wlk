@@ -35,6 +35,6 @@ object bolichito {
 	}
 	
 	method tieneLuz(){
-		return (objetoEnMostrador.conduce() or objetoEnVidriera.conduce())
+		return (objetoEnMostrador.material().conduce() or objetoEnVidriera.material().conduce())
 	}
 }

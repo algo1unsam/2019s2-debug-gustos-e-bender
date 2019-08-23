@@ -116,8 +116,62 @@ test "1) Mostrador: banquito verde 2) Vidriera: Cajita de cobre con arito => Bol
 	bolichito.ponerEnVidriera(cajita)
 	banquito.setColor(verde)
 	
-	assert.that(bolichito.estaDesequilibrado())
 	assert.notThat(bolichito.tieneAlgoDeColor(naranja))		
+}
+
+//16
+test "Peso total cajita = peso vacía + peso objeto interno (para todo objeto interno)"{
+	munieco.setPeso(100)
+	cajita.setObjetoInterno(munieco)
+	
+	assert.equals(cajita.peso(), 500)
+	
+	munieco.setPeso(200)
+	
+	assert.equals(cajita.peso(), 600)
+}
+
+//17
+test "1) Mostrador: muñeco 500gr 2) Vidriera: Cajita de plomo natural con un arito => Es brillante y no tiene luz" {
+	bolichito.ponerEnMostrador(munieco)
+	munieco.setPeso(500)
+	
+	bolichito.ponerEnVidriera(cajita)
+	cajita.setMaterial(plomo)
+	cajita.setObjetoInterno(arito)
+	
+	assert.that(bolichito.esBrillante())
+	assert.notThat(bolichito.tieneLuz())
+}
+
+//18
+test "1) Mostrador: muñeco 500gr 2) Vidriera: Cajita de plomo cromado con un arito => Es brillante y tiene luz" {
+	bolichito.ponerEnMostrador(munieco)
+	munieco.setPeso(500)
+	
+	bolichito.ponerEnVidriera(cajita)
+	cajita.setMaterial(plomo)
+	cajita.setObjetoInterno(arito)
+	plomo.setEstado("cromado")
+	
+	assert.that(bolichito.esBrillante())
+	assert.that(bolichito.tieneLuz())
+	
+}
+
+//19
+test "1) Mostrador: muñeco 500gr 2) Vidriera: Cajita de plomo oxidado con un arito => No es brillante y no tiene luz" {
+	bolichito.ponerEnMostrador(munieco)
+	munieco.setPeso(500)
+	
+	bolichito.ponerEnVidriera(cajita)
+	cajita.setMaterial(plomo)
+	cajita.setObjetoInterno(arito)
+	plomo.setEstado("oxidado")
+	
+	assert.notThat(bolichito.esBrillante())
+	assert.notThat(bolichito.tieneLuz())
+	
 }
 
 

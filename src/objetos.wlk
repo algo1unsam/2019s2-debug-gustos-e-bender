@@ -30,29 +30,22 @@ object cuero {
 
 object plomo {
 	
-	var _estado = natural
+	var _estado = "natural"
 	
 	method setEstado(estado){
 		_estado = estado
 	}
 	
 	method brilla() { 
-		return (_estado == oxidado) or (_estado == cromado)
+		return ((_estado == "natural") or (_estado == "cromado"))
 	}
 	
 	method conduce() { 
-		return (_estado == cromado)
+		return (_estado == "cromado")
 	}
 	
 
 }
-
-/*ESTADOS */
-
-object oxidado{}
-object natural{}
-object cromado{}
-
 
 /* objetos */
 object remera {
